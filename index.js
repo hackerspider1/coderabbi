@@ -1,2 +1,2 @@
-console.log("lint target v3");
-var a=1;var b=2;console.log(a,b);
+console.log("lint target v4");
+var a=1,b=2,c=3;console.log(a,b,c);
