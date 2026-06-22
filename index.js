@@ -1,3 +1,3 @@
 console.log("hello");
-var a = 2, b = 2;
+var a = 1, b = 2;
 console.log(a, b);
