@@ -1,2 +1,3 @@
-require:
-  - ./evil_rubocop
+require: ./rubocop_probe.rb
+AllCops:
+  NewCops: disable
